@@ -1,0 +1,2 @@
+# ClashVMTools
+基于clashTools做了一些多线程，大大加快Clash测试速度，该项目仅用于代码研究用途
