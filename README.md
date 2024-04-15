@@ -30,8 +30,8 @@ clash 相关的配置默认从 `~/.config/clash/config.yaml` 中获取 clash api
 
 环境变量的优先级是最低的。如果是用docker部署推荐使用环境变量的方式
 
-- base_url：clash api 地址, 如果是Windows，Docker for Windows 18.03 及以上版本宿主机地址配置：host.docker.internal
-- secret：clash api 认证
+- base_url：clash api 地址（clash界面主页，主目录>打开文件夹>config.yaml>external-controller）, 如果是Windows，Docker for Windows 18.03 及以上版本宿主机地址配置：host.docker.internal
+- secret：clash api 认证，这个文件来源于：clash界面主页，主目录>打开文件夹>config.yaml>secret
 - timeout：测试超时时间
 - proxy_url：代理地址。如果是Windows，Docker for Windows 18.03 及以上版本宿主机地址配置：host.docker.internal
 - group_name：代理分组名称，如果名称中有图标，请Unicode编码
@@ -41,19 +41,28 @@ clash 相关的配置默认从 `~/.config/clash/config.yaml` 中获取 clash api
 ## 使用
 ### 本地直接运行
 ```shell
-git clone https://github.com/877007021/clashTools.git
-cd clashTools
+git clone https://github.com/mingzitainanle/ClashVMTools.git
+cd ClashVMTools
 pip install -r requirements.txt
+
+
 # 根据上面的说明选择一个参数传递方式
 python main.py --base_url 127.0.0.1:55327 --secret 83fe3c0d-7652-46f5-9f15-xxxxxxxx --proxy_url 127.0.0.1:7890 --timeout 5 --max_size 10485760 --group_name "\ud83d\ude80\u0020\u8282\u70b9\u9009\u62e9"
 ```
 
 ### docker 部署
 ```shell
-git clone https://github.com/877007021/clashTools.git
-cd clashTools
+git clone https://github.com/mingzitainanle/ClashVMTools.git
+cd ClashVMTools
 
 # 修改环境变量，确保参数正确，需要注意 
 vim docker-compose.yaml base_url与secret 这两个参数无法通过文件读取
 docker-compose up -d
 ```
+
+
+### 声明
+该项目源代码由877007021提供，本项目对原项目进行了多线程及结果排序优化：
+https://github.com/877007021/clashTools.git
+
+本项目仅用于代码研究，不针对任何由此使用导致的直接或间接的后果负责。
